@@ -25,36 +25,23 @@ public class MyProfiler<K extends Comparable<K>, V> {
     public MyProfiler() {
         // TODO: complete the Profile constructor
         // Instantiate your HashTable and Java's TreeMap
-    	this.hashtable = new HashTable();
-    	this.treemap = new TreeMap();
+    	hashtable = new HashTable<K, V>();
+    	treemap = new TreeMap<K, V>();
     }
     
-    public void insert(K key, V value) {
+    public void insert(K key, V value) throws IllegalNullKeyException, DuplicateKeyException {
         // TODO: complete insert method
         // Insert K, V into both data structures
-    	try {
-			this.hashtable.insert(key, value);
-		} catch (IllegalNullKeyException | DuplicateKeyException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-   
-    	this.treemap.put(key,value);
+    	hashtable.insert(key, value);
+    	treemap.put(key,value);
     	
     }
     
-    public void retrieve(K key) {
+    public void retrieve(K key) throws IllegalNullKeyException, KeyNotFoundException {
         // TODO: complete the retrieve method
         // get value V for key K from data structures
-    	try {
-			this.hashtable.get(key);
-		} catch (IllegalNullKeyException | KeyNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	
-    	this.treemap.remove(key);
-    	
+		hashtable.get(key);	
+    	treemap.get(key);
     }
     
     public static void main(String[] args) {
@@ -82,6 +69,7 @@ public class MyProfiler<K extends Comparable<K>, V> {
             System.out.println(msg);
         }
         catch (Exception e) {
+        	e.printStackTrace();
             System.out.println("Usage: java MyProfiler <number_of_elements>");
             System.exit(1);
         }

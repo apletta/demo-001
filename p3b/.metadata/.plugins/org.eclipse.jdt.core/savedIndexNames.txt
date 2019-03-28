@@ -1,0 +1,1 @@
+INDEX VERSION 1.130+/afs/cs.wisc.edu/u/p/l/pletta/private/cs400/p3b/demo-001/p3b/.metadata/.plugins/org.eclipse.jdt.core

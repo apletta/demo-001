@@ -66,8 +66,8 @@ public class HashTable<K extends Comparable<K>, V> implements HashTableADT<K, V>
 	 * @field table = array to store HashNode objects
 	 */
 	public HashTable() {
-		this.capacity = 0;
-		this.loadFactorThreshold = 0;
+		this.capacity = 100;
+		this.loadFactorThreshold = 0.7;
 		this.table = new HashNode[this.capacity];
 	}
 
